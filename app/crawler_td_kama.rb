@@ -11,22 +11,22 @@ class Crawler
 
   def compare(pair)
     @driver.navigate.to pair[0]
-    keys1 = @driver.find_elements(xpath: '//table//tr/td[1]')
-    values1 = @driver.find_elements(xpath: '//table//tr/td[2]')
+    keys1 = @driver.find_elements(xpath: "//div[@class='padding_content_block']//table//tr/td[1]")
+    values1 = @driver.find_elements(xpath: "//div[@class='padding_content_block']//table//tr/td[2]")
     hash1 = {}
     keys1.each_with_index do |key, index|
       hash1[key.text] = values1[index].text
     end
 
     @driver.navigate.to pair[1]
-    keys2 = @driver.find_elements(xpath: "//*[contains(@class, 'table')]//span")
-    values2 = @driver.find_elements(xpath: "//*[contains(@class, 'table')]//div[@class='table_cell tac']")
+   # keys2 = @driver.find_elements(xpath: "//*[contains(@class, 'table')]//span")
+   # values2 = @driver.find_elements(xpath: "//*[contains(@class, 'table')]//div[@class='table_cell tac']")
     keys3 = @driver.find_elements(xpath: "(//*[contains(@class, 'tire-size-table')])//b")
     values3 = @driver.find_elements(xpath: "(//*[contains(@class, 'tire-size-table')])/div/div[@class='table_cell'][2]")
     hash2 = {}
-    keys2.each_with_index do |key, index|
-      hash2[key.text] = values2[index].text
-    end
+  #  keys2.each_with_index do |key, index|
+  #    hash2[key.text] = values2[index].text
+  #  end
     keys3.each_with_index do |key, index|
       hash2[key.text] = values3[index].text
     end
