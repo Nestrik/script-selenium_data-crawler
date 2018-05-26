@@ -21,8 +21,8 @@ class Crawler
     @driver.navigate.to pair[1]
     keys2 = @driver.find_elements(xpath: "//*[contains(@class, 'table')]//span")
     values2 = @driver.find_elements(xpath: "//*[contains(@class, 'table')]//div[@class='table_cell tac']")
-    keys3 = @driver.find_elements(xpath: "(//*[contains(@class, 'tire-size-table')])[2]//b")
-    values3 = @driver.find_elements(xpath: "(//*[contains(@class, 'tire-size-table')])[2]//div[@class='table_cell'][2]")
+    keys3 = @driver.find_elements(xpath: "(//*[contains(@class, 'tire-size-table')])//b")
+    values3 = @driver.find_elements(xpath: "(//*[contains(@class, 'tire-size-table')])/div/div[@class='table_cell'][2]")
     hash2 = {}
     keys2.each_with_index do |key, index|
       hash2[key.text] = values2[index].text
